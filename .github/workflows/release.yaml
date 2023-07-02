@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  pull_request:
+    branches:
+      - stable
+    types:
+      - closed
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    if: ${{ github.event.pull_request.merged == true || !contains(github.event.pull_request.body, '[skip-ci]') }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🗄️ Load Secrets
+        id: secrets
+        uses: 1password/load-secrets-action@v1
+        with:
+          export-env: false
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          BOT_NAME: op://detra/rawdwz5qfijf3ojxok3byitbqm/username
+          BOT_EMAIL: op://detra/rawdwz5qfijf3ojxok3byitbqm/email
+          BOT_GH_TOKEN: op://detra/rawdwz5qfijf3ojxok3byitbqm/credential
+          BOT_NPM_TOKEN: op://detra/fgecthfcjhz3l6j7spintrag7m/credential
+
+      - name: 🏗️ Configure Git User
+        run: |
+          git config --global user.name ${{ steps.secrets.outputs.BOT_NAME }}
+          git config --global user.email ${{ steps.secrets.outputs.BOT_EMAIL }}
+
+      - name: 📦 Setup PNPm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - name: 🧩 Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Configure .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=${{ steps.secrets.outputs.BOT_NPM_TOKEN }}
+          EOF
+
+      - name: 📣 Create Release PR or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          NPM_TOKEN: ${{ steps.secrets.outputs.BOT_NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.secrets.outputs.BOT_GH_TOKEN }}
+        with:
+          setupGitUser: false
+          publish: pnpm run release
+          title: 'chore: bump the package version'
+          commit: 'chore: bump the package version'
