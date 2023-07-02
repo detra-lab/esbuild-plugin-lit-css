@@ -1,0 +1,38 @@
+@import './_root.css';
+
+body {
+  color: var(--main-color);
+}
+
+a {
+  color: rgb(0 0 100% / 90%);
+
+  &:hover {
+    color: oklch(40% 0.268735435 34.568626);
+  }
+
+  > span {
+    color: color-mix(in oklch, cyan, green 25%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: oklab(from oklab(54.3% -22.5% -5%) calc(1 - l) calc(a * 0.8) b);
+  }
+}
+
+aside {
+  margin-block-start: 1rem;
+  margin-block-end: 2rem;
+  margin-inline-start: 3rem;
+  margin-inline-end: 4rem;
+  width: 10vi;
+  height: 20vb;
+}
+
+@custom-media --tablet (48rem <= width < 64rem);
+
+@media (--tablet) {
+  :is(input, button):is(:hover, :focus) {
+    color: rebeccapurple;
+  }
+}
