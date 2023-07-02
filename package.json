@@ -1,0 +1,79 @@
+{
+  "name": "@detra-lab/esbuild-plugin-lit-css",
+  "version": "0.1.0",
+  "description": "An esbuild plugin for handling a Lit component's styles via PostCSS.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./declarations": {
+      "types": "./declarations.d.ts"
+    }
+  },
+  "files": [
+    "./lib/*"
+  ],
+  "prettier": "@detra-lab/prettier-config",
+  "scripts": {
+    "check:tsc": "tsc --noEmit",
+    "check:src": "eslint . --ext .js,.ts",
+    "check": "pnpm run /^check:.*/",
+    "test": "vitest --silent --run",
+    "test:cov": "pnpm run test --coverage",
+    "build:plugin": "ts-node-esm ./esbuild.ts",
+    "build:demo": "ts-node-esm ./esbuild.demo.ts",
+    "build": "pnpm run /^build:.*/",
+    "release": "pnpm run build:plugin && changeset publish"
+  },
+  "dependencies": {
+    "cssnano": "6.0.1",
+    "effect": "2.0.0-next.34",
+    "postcss": "8.4.30",
+    "postcss-preset-env": "^9.1.4"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@detra-lab/eslint-config": "^2.0.0",
+    "@detra-lab/prettier-config": "^0.2.0",
+    "@detra-lab/tsc": "^0.2.5",
+    "@evilmartians/lefthook": "^1.5.0",
+    "@types/node": "^16.18.57",
+    "@vitest/coverage-v8": "^0.34.6",
+    "eslint": "^8.50.0",
+    "lit": "^2.8.0",
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "esbuild": "^0.19.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache License 2.0",
+  "author": {
+    "name": "Detra",
+    "email": "detra.lab@pm.me",
+    "homepage": "https://github.com/detra-lab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/detra-lab/esbuild-css-inline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/detra-lab/esbuild-css-inline/issues"
+  },
+  "keywords": [
+    "esbuild-plugin",
+    "esbuild",
+    "postcss",
+    "scss"
+  ]
+}
