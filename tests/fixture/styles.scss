@@ -1,0 +1,11 @@
+@use './partial';
+
+$foreground: rebeccapurple;
+
+.wrapper {
+  padding: 16px;
+
+  > h1 {
+    color: $foreground;
+  }
+}

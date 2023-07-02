@@ -1,0 +1,9 @@
+lib
+coverage
+
+.cache
+.DS_Store
+.env*
+*log
+node_modules
+Thumbs.db
