@@ -1,0 +1,3 @@
+{
+  "extends": ["github>detra-lab/renovate-config"]
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "@detra-lab/tsc/lit/tsconfig.json",
+  "include": ["./src", "./declarations.d.ts"]
+}
