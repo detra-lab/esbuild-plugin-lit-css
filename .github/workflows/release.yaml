@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    branches:
+      - stable
+    types:
+      - completed
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  GH_USER_EMAIL: ${{ secrets.DETRA_BOT_EMAIL }}
+  GH_TOKEN: ${{ secrets.DETRA_GH_PAT }}
+  NPM_TOKEN: ${{ secrets.DETRA_NPM_PAT }}
+
+jobs:
+  release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup PNPm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: 🧩 Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Configure .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+
+      - name: 🏗️ Configure Git User
+        run: |
+          git config --global user.name "detra-bot"
+          git config --global user.email "$GH_USER_EMAIL"
+
+      - name: 📣 Create Release PR or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+        with:
+          setupGitUser: false
+          publish: pnpm run release
+          title: 'chore: bump the package version'
+          commit: 'chore: bump the package version'

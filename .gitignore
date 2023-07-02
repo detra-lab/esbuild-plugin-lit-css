@@ -1,0 +1,10 @@
+# Packages
+lib
+
+# Miscellaneous
+.cache
+.DS_Store
+.env*
+*log
+node_modules
+Thumbs.db

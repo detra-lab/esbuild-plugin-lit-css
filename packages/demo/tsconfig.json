@@ -1,0 +1,8 @@
+{
+  "extends": "@detra-lab/tsc/lit/tsconfig.json",
+  "include": [
+    "./src",
+    "./tsup.config.ts",
+    "./node_modules/@detra-lab/esbuild-plugin-css-inline/module.d.ts"
+  ]
+}

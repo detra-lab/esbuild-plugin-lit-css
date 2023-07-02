@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: false
+
+  commands:
+    check:
+      run: pnpm run check
+
+    prettier:
+      glob: '*'
+      run: pnpx prettier {staged_files} --write --ignore-unknown --no-error-on-unmatched-pattern && git add {staged_files}

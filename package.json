@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@detra-lab/esbuild-plugins",
+  "version": "0.0.0",
+  "description": "Detra esbuild's plugins monorepo",
+  "type": "module",
+  "scripts": {
+    "check:tsc": "pnpm -r check:tsc",
+    "check:src": "eslint . --ext .js,.ts",
+    "check": "pnpm run /^check:.*/",
+    "build": "pnpm -r build",
+    "release": "pnpm run build && changeset publish"
+  },
+  "prettier": "@detra-lab/prettier-config",
+  "devDependencies": {
+    "@changesets/changelog-git": "^0.1.14",
+    "@changesets/cli": "^2.26.2",
+    "@detra-lab/eslint-config": "^0.2.0",
+    "@detra-lab/prettier-config": "^0.1.0",
+    "@detra-lab/tsc": "^0.2.5",
+    "@evilmartians/lefthook": "^1.4.3",
+    "eslint": "^8.44.0",
+    "prettier": "^2.8.8"
+  },
+  "engines": {
+    "node": "16 || 18",
+    "pnpm": ">=8"
+  }
+}

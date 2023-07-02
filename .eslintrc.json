@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": [
+    "@detra-lab/eslint-config",
+    "@detra-lab/eslint-config/typescript"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "project": ["./packages/*/tsconfig.json"]
+  }
+}

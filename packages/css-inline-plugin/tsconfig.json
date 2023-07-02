@@ -1,0 +1,4 @@
+{
+  "extends": "@detra-lab/tsc/node/tsconfig.esm.json",
+  "include": ["./src", "module.d.ts", "./tsup.config.ts"]
+}
