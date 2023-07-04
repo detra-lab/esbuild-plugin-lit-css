@@ -1,7 +1,7 @@
 import { html, LitElement, TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import styles from './styles.css'
+import styles from './styles.scss'
 
 @customElement('sample-element')
 export class SampleElement extends LitElement {
@@ -11,7 +11,11 @@ export class SampleElement extends LitElement {
   public name = 'World'
 
   public override render(): TemplateResult {
-    return html`<h1>Hello, ${this.name}!</h1>`
+    return html`
+      <div class="wrapper">
+        <h1>Hello, ${this.name}!</h1>
+      </div>
+    `
   }
 }
 

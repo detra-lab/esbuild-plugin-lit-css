@@ -1,11 +1,16 @@
+import type { CSSResult } from 'lit'
+
 declare module '*.css' {
-  import type { CSSResult } from 'lit'
-  export const styles: CSSResult
+  const styles: CSSResult
   export default styles
 }
 
 declare module '*.scss' {
-  import { CSSResult } from 'lit'
+  const styles: CSSResult
+  export default styles
+}
+
+declare module '*.sass' {
   const styles: CSSResult
   export default styles
 }
