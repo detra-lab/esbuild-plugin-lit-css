@@ -29,7 +29,7 @@
     "autoprefixer": "10.4.16",
     "cssnano": "6.0.1",
     "effect": "2.0.0-next.34",
-    "postcss": "8.4.30",
+    "postcss": "8.4.31",
     "sass": "1.68.0"
   },
   "devDependencies": {
