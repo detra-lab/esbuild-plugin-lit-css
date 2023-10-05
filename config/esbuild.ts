@@ -4,11 +4,6 @@ import { Effect } from 'effect'
 import type { BuildOptions, BuildResult } from 'esbuild'
 import * as esbuild from 'esbuild'
 
-export const esbuildTask = (
-  config: BuildOptions
-): Effect.Effect<never, unknown, BuildResult> =>
-  Effect.tryPromise(() => esbuild.build(config))
-
 export const build = (config: BuildOptions): Promise<void> =>
   Effect.runPromise(
     Effect.match(esbuildTask(config), {
@@ -21,3 +16,8 @@ export const build = (config: BuildOptions): Promise<void> =>
       }
     })
   )
+
+const esbuildTask = (
+  config: BuildOptions
+): Effect.Effect<never, unknown, BuildResult> =>
+  Effect.tryPromise(() => esbuild.build(config))

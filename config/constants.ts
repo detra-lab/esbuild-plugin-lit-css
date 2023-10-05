@@ -1,5 +1,5 @@
 import type { BuildOptions } from 'esbuild'
-import { injectStylePlugin } from '../src/main.js'
+import { injectStylePlugin } from '../src/plugin.js'
 
 const COMMON_CONFIG: BuildOptions = {
   bundle: true,
@@ -12,7 +12,7 @@ const COMMON_CONFIG: BuildOptions = {
 
 export const PLUGIN_CONFIG: BuildOptions = {
   ...COMMON_CONFIG,
-  entryPoints: ['./src/main.ts'],
+  entryPoints: ['./src/index.ts'],
   outdir: './lib',
   platform: 'node',
   target: ['es2020', 'node16']
@@ -21,7 +21,7 @@ export const PLUGIN_CONFIG: BuildOptions = {
 export const DEMO_CONFIG: BuildOptions = {
   ...COMMON_CONFIG,
   entryPoints: ['./demo/src/index.ts'],
-  outdir: './demo/public',
+  outdir: './demo/out',
   platform: 'browser',
   target: ['es2020'],
   plugins: [injectStylePlugin()]

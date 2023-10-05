@@ -7,6 +7,7 @@ import type {
   OnResolveResult
 } from 'esbuild'
 import { cssProcessing } from './css-processing.js'
+import type { InjectStylePluginOptions as PluginOptions } from './index.js'
 
 interface OnResolveResolver extends OnResolveArgs {
   namespace: string
@@ -22,15 +23,15 @@ export const onResolveResolver = ({
 })
 
 interface OnLoadResolver extends OnLoadArgs {
-  verbose: boolean
+  options: Required<PluginOptions>
 }
 
 export const onLoadResolver = ({
   path,
-  verbose
+  options
 }: OnLoadResolver): Promise<OnLoadResult> =>
   Effect.runPromise(
-    Effect.match(cssProcessing({ from: path, verbose }), {
+    Effect.match(cssProcessing({ from: path, options }), {
       onSuccess: contents => ({
         contents,
         loader: 'text' as const

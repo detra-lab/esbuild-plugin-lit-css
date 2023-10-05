@@ -1,10 +1,8 @@
 {
   "extends": "@detra-lab/tsc/node/tsconfig.esm.json",
-  "compilerOptions": {
-    "baseUrl": "./src"
-  },
   "include": [
     "./src",
+    "./tests",
     "./config",
     "./esbuild.ts",
     "./esbuild.demo.ts",
