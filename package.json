@@ -32,7 +32,7 @@
     "cssnano": "6.0.1",
     "effect": "2.0.0-next.34",
     "postcss": "8.4.30",
-    "sass": "1.68.0"
+    "sass": "1.69.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
