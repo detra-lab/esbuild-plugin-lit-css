@@ -30,7 +30,7 @@
   "dependencies": {
     "autoprefixer": "10.4.16",
     "cssnano": "6.0.1",
-    "effect": "2.0.0-next.34",
+    "effect": "2.0.0-next.47",
     "postcss": "8.4.30",
     "sass": "1.68.0"
   },
