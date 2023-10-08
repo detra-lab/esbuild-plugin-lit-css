@@ -7,16 +7,16 @@ import type {
   OnResolveResult
 } from 'esbuild'
 import type { InjectStylePluginOptions as PluginOptions } from '../index.js'
-import { cssProcessing } from './postcss.js'
+import { compiler } from './compiler.js'
 
 interface OnResolveResolver extends OnResolveArgs {
   namespace: string
 }
 
 export const onResolveResolver = ({
+  path,
   namespace,
-  resolveDir,
-  path
+  resolveDir
 }: OnResolveResolver): OnResolveResult => ({
   namespace,
   path: join(resolveDir, path)
@@ -31,7 +31,7 @@ export const onLoadResolver = ({
   options
 }: OnLoadResolver): Promise<OnLoadResult> =>
   Effect.runPromise(
-    Effect.match(cssProcessing({ from: path, ...options }), {
+    Effect.match(compiler({ from: path, ...options }), {
       onSuccess: contents => ({
         contents,
         loader: 'text' as const

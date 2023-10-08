@@ -1,40 +1,9 @@
 import cssnano from 'cssnano'
 import { Effect } from 'effect'
 import postcssCompiler, { type AcceptedPlugin } from 'postcss'
+import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
-import type { InjectStylePluginOptions as PluginOptions } from '../index.js'
-import { CSSCompilationError, type FileSystemError } from './errors.js'
-import { printLog, readFile } from './utils.js'
-
-interface CSSProcessingOptions extends Required<PluginOptions> {
-  from: string
-}
-
-export const cssProcessing = ({
-  from,
-  debug: isDebugActive,
-  minify: isMinificationActive
-}: CSSProcessingOptions): Effect.Effect<
-  never,
-  FileSystemError | CSSCompilationError,
-  string
-> =>
-  readFile(from).pipe(
-    Effect.tap(rawContent =>
-      printLog(
-        isDebugActive,
-        `🔎 Checking the contents of "${from}"`,
-        rawContent
-      )
-    ),
-    Effect.flatMap(rawCssContent =>
-      postcssTask({ from, rawCssContent, isMinificationActive })
-    ),
-    Effect.tap(css =>
-      printLog(isDebugActive, '✅ PostCSS processing completed', css)
-    ),
-    Effect.flatMap(css => Effect.succeed(css))
-  )
+import { CSSCompilationError } from './errors.js'
 
 interface PostcssTaskOptions {
   from: string
@@ -42,7 +11,7 @@ interface PostcssTaskOptions {
   isMinificationActive: boolean
 }
 
-const postcssTask = ({
+export const postcssTask = ({
   from,
   rawCssContent,
   isMinificationActive
@@ -65,10 +34,11 @@ const postcssPlugins = (
   Effect.sync(() =>
     isMinificationActive
       ? [
+          postcssImport,
           // @ts-expect-error
           // Ref. https://github.com/csstools/postcss-plugins/issues/1031
           postcssPresetEnv({ autoprefixer: false }),
           cssnano
         ]
-      : [postcssPresetEnv]
+      : [postcssImport, postcssPresetEnv]
   )
