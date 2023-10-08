@@ -18,10 +18,10 @@ dependencies:
     specifier: 8.4.30
     version: 8.4.30
   postcss-import:
-    specifier: ^15.1.0
+    specifier: 15.1.0
     version: 15.1.0(postcss@8.4.30)
   postcss-preset-env:
-    specifier: ^9.1.4
+    specifier: 9.1.4
     version: 9.1.4(postcss@8.4.30)
 
 devDependencies:
