@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   browserslist:
-    specifier: ^4.22.1
+    specifier: 4.22.1
     version: 4.22.1
   effect:
     specifier: 2.0.0-next.47
@@ -15,7 +15,7 @@ dependencies:
     specifier: ^0.19.0
     version: 0.19.4
   lightningcss:
-    specifier: ^1.22.0
+    specifier: 1.22.0
     version: 1.22.0
 
 devDependencies:
