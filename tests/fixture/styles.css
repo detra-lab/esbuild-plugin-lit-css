@@ -1,6 +1,4 @@
-:root {
-  --main-color: #12345678;
-}
+@import './_root.css';
 
 body {
   color: var(--main-color);

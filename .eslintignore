@@ -1,4 +1,6 @@
-demo
-lib
+out
+/config/
+/demo/
+/lib/
 
 node_modules

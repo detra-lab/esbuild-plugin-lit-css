@@ -1,12 +1,12 @@
 import * as path from 'node:path'
 import { Effect } from 'effect'
-import { build, type BuildOptions } from '../config/esbuild.js'
+import esbuild, { type BuildOptions } from 'esbuild'
 
 export const esbuildRun = async (
   outFile: string,
   options: BuildOptions
 ): Promise<void> => {
-  await build({
+  await esbuild.build({
     logLevel: 'silent',
     bundle: true,
     format: 'esm',
@@ -17,10 +17,16 @@ export const esbuildRun = async (
   })
 }
 
-export const getSourcePath = (): Effect.Effect<never, never, string> =>
-  Effect.sync(() =>
-    path.resolve(__dirname, 'fixture', 'styles.css').substring(1)
-  )
+export const getSourcePaths = (): Effect.Effect<never, never, string[]> => {
+  const basePath = path.resolve(__dirname, 'fixture')
+
+  const removeCapitalSlash = (s: string): string => s.substring(1)
+
+  return Effect.sync(() => [
+    removeCapitalSlash(path.join(basePath, 'styles.css')),
+    removeCapitalSlash(path.join(basePath, '_root.css'))
+  ])
+}
 
 export const getSourceMap = (
   sources: string[],
@@ -31,7 +37,7 @@ export const getSourceMap = (
       version: 3,
       sourceRoot: null,
       mappings:
-        'AAAA;;;;AAIA;;;;AAIA;;;;AAGE;;;;;AAIA;;;;;AAIA;EAAqC;;;;;AAKvC;;;;;;;AAWA;EACE',
+        'ACAA;;;;ADEA;;;;AAIA;;;;AAGE;;;;;AAIA;;;;;AAIA;EAAqC;;;;;AAKvC;;;;;;;AAWA;EACE',
       sources,
       sourcesContent,
       names: []

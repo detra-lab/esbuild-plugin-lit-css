@@ -14,7 +14,8 @@
     }
   },
   "files": [
-    "./lib/*"
+    "./lib/*",
+    "./declarations.d.ts"
   ],
   "prettier": "@detra-lab/prettier-config",
   "scripts": {
@@ -23,8 +24,8 @@
     "check": "pnpm run /^check:.*/",
     "test": "vitest --silent --run",
     "test:cov": "pnpm run test --coverage",
-    "build:plugin": "ts-node-esm ./esbuild.ts",
-    "build:demo": "ts-node-esm ./esbuild.demo.ts",
+    "build:plugin": "node ./config/esbuild.js",
+    "build:demo": "node ./config/esbuild.demo.js",
     "build": "pnpm run /^build:.*/",
     "release": "pnpm run build:plugin && changeset publish"
   },
@@ -42,10 +43,10 @@
     "@types/node": "^16.18.58",
     "@types/postcss-import": "^14.0.1",
     "@vitest/coverage-v8": "^0.34.6",
+    "esbuild": "^0.19.4",
     "eslint": "^8.51.0",
     "lit": "^2.8.0",
     "prettier": "^3.0.3",
-    "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
   },

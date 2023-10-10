@@ -1,1 +1,1 @@
-/// <reference types="../declarations.d.ts" />
+/// <reference types="../declarations" />

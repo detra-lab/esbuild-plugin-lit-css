@@ -5,11 +5,12 @@ import { PLUGIN_NAME } from '../src/core/constants.js'
 import { deleteFile, generateRandomUUID } from '../src/core/utils.js'
 import { litCssPlugin } from '../src/index.js'
 import {
-  CSS_SOURCE,
+  ROOT_SOURCE,
+  STYLES_SOURCE,
   CSS_OUTPUT_MINIFIED,
   CSS_OUTPUT_NOT_MINIFIED
 } from './constants.js'
-import { esbuildRun, getSourceMap, getSourcePath } from './utils.js'
+import { esbuildRun, getSourceMap, getSourcePaths } from './utils.js'
 
 let outfileName = 'tmp-file.js'
 
@@ -76,14 +77,12 @@ describe(PLUGIN_NAME, () => {
       plugins: [litCssPlugin({ debug: true })]
     })
 
-    expect(logSpy).toHaveBeenCalledTimes(2)
+    expect(logSpy).toHaveBeenCalledTimes(1)
 
     expect(logSpy).toHaveBeenNthCalledWith(
       1,
       `✅ CSS compiling finished\n${CSS_OUTPUT_NOT_MINIFIED}`
     )
-
-    expect(logSpy).toHaveBeenNthCalledWith(2, '⚡️ Build successful')
   })
 
   test('should print the minified output of the Lightning CSS compilation', async () => {
@@ -93,14 +92,12 @@ describe(PLUGIN_NAME, () => {
       plugins: [litCssPlugin({ debug: true, minify: true })]
     })
 
-    expect(logSpy).toHaveBeenCalledTimes(2)
+    expect(logSpy).toHaveBeenCalledTimes(1)
 
     expect(logSpy).toHaveBeenNthCalledWith(
       1,
       `✅ CSS compiling finished\n${CSS_OUTPUT_MINIFIED}`
     )
-
-    expect(logSpy).toHaveBeenNthCalledWith(2, '⚡️ Build successful')
   })
 
   test('should provide a compiled CSS with the inline source map inside a JavaScript file', async () => {
@@ -112,10 +109,10 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    const cssSourcePath = Effect.runSync(getSourcePath())
+    const cssSourcePaths = Effect.runSync(getSourcePaths())
 
     const sourceMap = Effect.runSync(
-      getSourceMap([cssSourcePath], [CSS_SOURCE])
+      getSourceMap(cssSourcePaths, [STYLES_SOURCE, ROOT_SOURCE])
     )
 
     expect(out.rawCss).toBe(

@@ -1,11 +1,4 @@
 {
   "extends": "@detra-lab/tsc/node/tsconfig.esm.json",
-  "include": [
-    "./src",
-    "./tests",
-    "./config",
-    "./esbuild.ts",
-    "./esbuild.demo.ts",
-    "./declarations.d.ts"
-  ]
+  "include": ["./src", "./tests", "./declarations.d.ts"]
 }

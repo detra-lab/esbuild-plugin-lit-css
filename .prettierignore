@@ -1,5 +1,6 @@
-lib
-public
+out
+/lib/
+/README.md
 
 node_modules
 pnpm-lock.yaml
