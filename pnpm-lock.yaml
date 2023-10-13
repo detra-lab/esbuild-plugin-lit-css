@@ -9,8 +9,8 @@ dependencies:
     specifier: 4.22.1
     version: 4.22.1
   effect:
-    specifier: 2.0.0-next.47
-    version: 2.0.0-next.47
+    specifier: 2.0.0-next.48
+    version: 2.0.0-next.48
   lightningcss:
     specifier: 1.22.0
     version: 1.22.0
@@ -1874,8 +1874,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /effect@2.0.0-next.47:
-    resolution: {integrity: sha512-H2L1xoaOblZbrTHuUo/ppWVr9R34FyigxXkEn9iD9TMYgCJqSS9RIUOGCTdT4ATyCgVf7dWlJxOtLFSpirVWqA==}
+  /effect@2.0.0-next.48:
+    resolution: {integrity: sha512-vwMIl39m8fMBeXoGIdSwMi2lrg7NltyrGMK0N/liGDl7G9LXvERKOCipNcobSIGO0V7hjaXEWgL6W/KEWEww+g==}
     dev: false
 
   /electron-to-chromium@1.4.549:

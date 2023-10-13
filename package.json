@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "browserslist": "4.22.1",
-    "effect": "2.0.0-next.47",
+    "effect": "2.0.0-next.48",
     "lightningcss": "1.22.0"
   },
   "devDependencies": {
