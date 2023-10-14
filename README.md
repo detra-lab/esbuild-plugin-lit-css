@@ -22,8 +22,8 @@ An [esbuild](https://esbuild.github.io/) plugin created to handle the CSS of a L
 
 2. Add the plugin to your esbuild configuration:
 
-   ```ts
-   // ./esbuild.ts
+   ```js
+   // ./esbuild.js
 
    import { litCssPlugin } from '@detra-lab/esbuild-plugin-lit-css'
    // You can also use the default export if you prefer:
@@ -58,10 +58,10 @@ An [esbuild](https://esbuild.github.io/) plugin created to handle the CSS of a L
    }
    ```
 
-4. Run the esbuild script with [ts-node](https://github.com/TypeStrong/ts-node). You should be able to compile the component's styles successfully.
+4. Run the esbuild script with Node.js >=16. You should be able to compile the component's styles successfully.
 
    ```sh
-   ts-node-esm ./esbuild.ts
+   node ./esbuild.js
    ```
 
 ## Plugin Options
