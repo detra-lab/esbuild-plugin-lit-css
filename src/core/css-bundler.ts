@@ -4,6 +4,7 @@ import { type PartialMessage } from 'esbuild'
 import {
   bundleAsync,
   browserslistToTargets,
+  type Drafts,
   type Targets,
   type TransformResult,
   type Warning
@@ -27,6 +28,7 @@ export const cssBundler = ({
   sourceFile,
   browserlistQuery,
   debug: isDebugActive,
+  disableDraftSpecs: isDraftSyntaxDisabled,
   minify: isMinificationRequired,
   sourceMap: isSourceMapRequired
 }: CssBundlerOptions): Effect.Effect<
@@ -37,6 +39,7 @@ export const cssBundler = ({
   lightningCss({
     sourceFile,
     browserlistQuery,
+    isDraftSyntaxDisabled,
     isMinificationRequired,
     isSourceMapRequired
   }).pipe(
@@ -59,11 +62,10 @@ export const cssBundler = ({
     )
   )
 
-// Lightning CSS Bundler
-// Ref. https://lightningcss.dev/bundling.html
 interface LightningCssOptions {
   sourceFile: string
   browserlistQuery: string
+  isDraftSyntaxDisabled: boolean
   isMinificationRequired: boolean
   isSourceMapRequired: boolean
 }
@@ -71,6 +73,7 @@ interface LightningCssOptions {
 const lightningCss = ({
   sourceFile,
   browserlistQuery,
+  isDraftSyntaxDisabled,
   isMinificationRequired,
   isSourceMapRequired
 }: LightningCssOptions): Effect.Effect<
@@ -82,26 +85,21 @@ const lightningCss = ({
     Effect.flatMap(targets =>
       Effect.tryPromise({
         try: () =>
+          // Lightning CSS Bundler
+          // Ref. https://lightningcss.dev/bundling.html
           bundleAsync({
             targets,
             filename: sourceFile,
             minify: isMinificationRequired,
             sourceMap: isSourceMapRequired,
-            drafts: {
-              /**
-               * Lightning CSS compiles draft specs not yet available in browsers,
-               * but they must be manually enabled in your project since the syntax may change.
-               * Ref. https://drafts.csswg.org/mediaqueries-5/#custom-mq
-               */
-              customMedia: true
-            }
+            drafts: getDraftSpecs(isDraftSyntaxDisabled)
           }),
         catch: error => new CSSCompilationError(error)
       })
     )
   )
 
-export const browserlist = (
+const browserlist = (
   query: string
 ): Effect.Effect<never, BrowserlistError, Targets> =>
   Effect.sync(() => browserslist(query)).pipe(
@@ -113,9 +111,14 @@ export const browserlist = (
     )
   )
 
-export const transformWarnings = (
-  lightningCSSWarnings: Warning[]
-): PartialMessage[] =>
+const getDraftSpecs = (isDraftSyntaxDisabled: boolean): Drafts =>
+  isDraftSyntaxDisabled
+    ? {}
+    : {
+        customMedia: true
+      }
+
+const transformWarnings = (lightningCSSWarnings: Warning[]): PartialMessage[] =>
   lightningCSSWarnings.map(warn => ({
     pluginName: PLUGIN_NAME,
     text: warn.message,
