@@ -34,6 +34,7 @@ const getOptions = (
 ): Required<PluginOptions> => ({
   browserlistQuery: pluginOptions.browserlistQuery ?? DEFAULT_BROWSERLIST_QUERY,
   debug: pluginOptions.debug ?? esbuildOptions.logLevel === 'debug',
+  disableDraftSpecs: pluginOptions.disableDraftSpecs ?? false,
   minify: pluginOptions.minify ?? esbuildOptions.minify ?? false,
   sourceMap: pluginOptions.sourceMap ?? Boolean(esbuildOptions.sourcemap)
 })

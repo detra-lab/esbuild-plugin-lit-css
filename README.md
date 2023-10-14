@@ -4,13 +4,43 @@
 [![NPM Downloads][npm_downloads_badge]][npm_badge_url]
 [![CI Status][ci_badge]][ci_badge_url]
 
-An [esbuild](https://esbuild.github.io/) plugin created to handle the CSS of a Lit component with [Lightning CSS](https://lightningcss.dev/), an extremely fast CSS parser, transformer, bundler, and minifier.
+An [esbuild](https://esbuild.github.io/) plugin created to handle a Lit component's CSS using [Lightning CSS](https://lightningcss.dev/), an extremely fast CSS parser, bundler, transformer, and minifier.
 
 - [esbuild-plugin-lit-css](#esbuild-plugin-lit-css)
+  - [About Lightning CSS and the Plugin](#about-lightning-css-and-the-plugin)
   - [Installation and Usage](#installation-and-usage)
   - [Plugin Options](#plugin-options)
   - [TypeScript](#typescript)
   - [License](#license)
+
+## About Lightning CSS and the Plugin 
+
+Lightning CSS is a tool written in Rust that empowers developers to use modern CSS features and future syntax today. It offers the following syntax transformations:
+
+- [:dir() Selector](https://cssdb.org/#dir-pseudo-class)
+- [:is() Selector](https://cssdb.org/#is-pseudo-class)
+- [:not() Selector](https://cssdb.org/#not-pseudo-class)
+- [Color Function](https://cssdb.org/#color-function)
+- [Color Mix](https://cssdb.org/#color-mix)
+- [Custom Media Queries](https://cssdb.org/#custom-media-queries)
+- [Double Position Gradients](https://cssdb.org/#double-position-gradients)
+- [Hex Colors with Alpha](https://cssdb.org/#hexadecimal-alpha-notation)
+- [HWB Colors](https://cssdb.org/#hwb-function)
+- [Lab Colors](https://cssdb.org/#lab-function)
+- [Logical Properties](https://cssdb.org/#logical-properties-and-values)
+- [Math Functions](https://drafts.csswg.org/css-values/#math)
+- [Media Query Ranges](https://cssdb.org/#media-query-ranges)
+- [Nesting](https://cssdb.org/#nesting-rules)
+- [Relative Colors](https://cssdb.org/#lch-function)
+- [system-ui font](https://cssdb.org/#system-ui-font-family)
+
+Furthermore, Lightning CSS offers a range of built-in features, including:
+- [Conditional Imports](https://lightningcss.dev/bundling.html#conditional-imports)
+- [Vendor Prefixing](https://lightningcss.dev/transpilation.html#vendor-prefixing) (an Autoprefixer alternative)
+- [Optimizazions and Minification](https://lightningcss.dev/minification.html) (a CSSNano alternative)
+- [Shorthands](https://lightningcss.dev/transpilation.html#shorthands)
+
+The plugin processes styles and returns them as a JavaScript or TypeScript string, offering a powerful and versatile tool for modern web development.
 
 ## Installation and Usage
 
@@ -68,12 +98,13 @@ An [esbuild](https://esbuild.github.io/) plugin created to handle the CSS of a L
 
 You can pass several options to the plugin, which by default reference those passed to esbuild.
 
-| Option           | Type    | Default                                                    |
-| ---------------- | ------- | ---------------------------------------------------------- |
-| browserlistQuery | string  | `> 0.5%, last 2 versions, Firefox ESR, not dead`.          |
-| debug            | boolean | The esbuild `logLevel` property set to `debug`.            |
-| minify           | boolean | The esbuild `minify` property or `false` if not specified. |
-| sourceMap        | boolean | A specified value for the `sourceMap` property of esbuild. |
+| Option            | Type    | Default                                                    |
+| ----------------- | ------- | ---------------------------------------------------------- |
+| browserlistQuery  | string  | `> 0.5%, last 2 versions, Firefox ESR, not dead`.          |
+| debug             | boolean | The esbuild `logLevel` property set to `debug`.            |
+| disableDraftSpecs | boolean | Lightning CSS [draft syntax](https://lightningcss.dev/transpilation.html#draft-syntax) functionality is activated. |
+| minify            | boolean | The esbuild `minify` property or `false` if not specified. |
+| sourceMap         | boolean | A specified value for the `sourceMap` property of esbuild. |
 
 ## TypeScript
 
