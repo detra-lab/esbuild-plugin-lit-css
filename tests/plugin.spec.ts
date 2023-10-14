@@ -7,8 +7,9 @@ import { litCssPlugin } from '../src/index.js'
 import {
   ROOT_SOURCE,
   STYLES_SOURCE,
-  CSS_OUTPUT_MINIFIED,
-  CSS_OUTPUT_NOT_MINIFIED
+  CSS_MINIFIED,
+  CSS_NOT_MINIFIED,
+  CSS_WITHOUT_DRAFT_SPECS
 } from './constants.js'
 import { esbuildRun, getSourceMap, getSourcePaths } from './utils.js'
 
@@ -29,7 +30,7 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    expect(out.rawCss).toBe(CSS_OUTPUT_NOT_MINIFIED)
+    expect(out.rawCss).toBe(CSS_NOT_MINIFIED)
   })
 
   test('should provide a compiled and minified CSS within a JavaScript file', async () => {
@@ -41,7 +42,7 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    expect(out.rawCss).toBe(CSS_OUTPUT_MINIFIED)
+    expect(out.rawCss).toBe(CSS_MINIFIED)
   })
 
   test('should provide a compiled and minified CSS when using the esbuild minify option instead of the plugin one', async () => {
@@ -54,7 +55,7 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    expect(out.rawCss).toBe(CSS_OUTPUT_MINIFIED)
+    expect(out.rawCss).toBe(CSS_MINIFIED)
   })
 
   test('should ignore the esbuild minify option if the plugin one is configured', async () => {
@@ -67,37 +68,19 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    expect(out.rawCss).toBe(CSS_OUTPUT_NOT_MINIFIED)
+    expect(out.rawCss).toBe(CSS_NOT_MINIFIED)
   })
 
-  test('should print the output of the Lightning CSS compilation', async () => {
-    const logSpy = vi.spyOn(console, 'log')
+  test('should provide a compiled CSS without compiling the draft CSS specs', async () => {
+    outfileName = generateRandomUUID()
 
     await esbuildRun(outfileName, {
-      plugins: [litCssPlugin({ debug: true })]
+      plugins: [litCssPlugin({ disableDraftSpecs: true })]
     })
 
-    expect(logSpy).toHaveBeenCalledTimes(1)
+    const out = await import(`./fixture/${outfileName}`)
 
-    expect(logSpy).toHaveBeenNthCalledWith(
-      1,
-      `✅ CSS compiling finished\n${CSS_OUTPUT_NOT_MINIFIED}`
-    )
-  })
-
-  test('should print the minified output of the Lightning CSS compilation', async () => {
-    const logSpy = vi.spyOn(console, 'log')
-
-    await esbuildRun(outfileName, {
-      plugins: [litCssPlugin({ debug: true, minify: true })]
-    })
-
-    expect(logSpy).toHaveBeenCalledTimes(1)
-
-    expect(logSpy).toHaveBeenNthCalledWith(
-      1,
-      `✅ CSS compiling finished\n${CSS_OUTPUT_MINIFIED}`
-    )
+    expect(out.rawCss).toBe(CSS_WITHOUT_DRAFT_SPECS)
   })
 
   test('should provide a compiled CSS with the inline source map inside a JavaScript file', async () => {
@@ -116,7 +99,37 @@ describe(PLUGIN_NAME, () => {
     )
 
     expect(out.rawCss).toBe(
-      `${CSS_OUTPUT_NOT_MINIFIED}//# sourceMappingURL=${sourceMap}`
+      `${CSS_NOT_MINIFIED}//# sourceMappingURL=${sourceMap}`
+    )
+  })
+
+  test('should print the output of the Lightning CSS compilation', async () => {
+    const logSpy = vi.spyOn(console, 'log')
+
+    await esbuildRun(outfileName, {
+      plugins: [litCssPlugin({ debug: true })]
+    })
+
+    expect(logSpy).toHaveBeenCalledTimes(1)
+
+    expect(logSpy).toHaveBeenNthCalledWith(
+      1,
+      `✅ CSS compiling finished\n${CSS_NOT_MINIFIED}`
+    )
+  })
+
+  test('should print the minified output of the Lightning CSS compilation', async () => {
+    const logSpy = vi.spyOn(console, 'log')
+
+    await esbuildRun(outfileName, {
+      plugins: [litCssPlugin({ debug: true, minify: true })]
+    })
+
+    expect(logSpy).toHaveBeenCalledTimes(1)
+
+    expect(logSpy).toHaveBeenNthCalledWith(
+      1,
+      `✅ CSS compiling finished\n${CSS_MINIFIED}`
     )
   })
 })
