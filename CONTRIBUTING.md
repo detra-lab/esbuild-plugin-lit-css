@@ -44,7 +44,7 @@ To ensure everything is formally correct before opening a Pull Request, run the 
 ```sh
 pnpm run check
 pnpm run test:ci
-````
+```
 
 To ensure that tests cover all lines of code, you can generate a test coverage report with a specific command:
 
