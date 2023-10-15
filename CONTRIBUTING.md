@@ -6,7 +6,6 @@
   - [Commit Your Changes](#commit-your-changes)
   - [Creating a Changeset](#creating-a-changeset)
 
-
 This brief guide will provide essential instructions to help you take your first steps in this project.
 
 We appreciate any contribution you wish to make, from reporting a bug to proposing a new feature or simply spreading the word about this project.
