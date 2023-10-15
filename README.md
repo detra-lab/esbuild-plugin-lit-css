@@ -69,7 +69,7 @@ The plugin processes styles and returns them as a JavaScript or TypeScript strin
 3. Import the CSS within the file that hosts the Lit component. If you encounter type issues with CSS file imports, check out the [TypeScript section](#typescript).
 
    ```ts
-   // ./src/components/hello-world
+   // ./src/components/hello-world.ts
 
    import { html, LitElement } from 'lit'
    import { customElement, property } from 'lit/decorators.js'
