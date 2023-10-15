@@ -134,7 +134,7 @@ Read our [contributing guide](./CONTRIBUTING.md) to learn about our developmen
 
 [Apache License 2.0](./LICENSE)
 
-<div align="center"><img src="https://raw.github.com/detra-lab/.github/stable/profile/logo.svg" width="80" height="80" alt="Detra" /><p><small>© 2023 Detra</small></p></div>
+<div align="center"><img src="https://raw.github.com/detra-lab/.github/stable/profile/logo.svg" width="100" height="100" alt="Detra" /><p><small>© 2023 Detra</small></p></div>
 
 <!-- Badges -->
 

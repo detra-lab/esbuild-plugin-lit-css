@@ -16,9 +16,9 @@ If it's your first time contributing to an open-source project and you want to e
 ## Initial Requirements
 
 Before contributing to the project, make sure you have the following initial requirements:
-  - An updated version of Git
-  - The LTS or Current version of Node.js
-  - The PNPM package manager updated to the latest version
+  - An updated version of [Git](https://git-scm.com/);
+  - The LTS or Current version of [Node.js](https://nodejs.org/);
+  - The [PNPM package manager](https://pnpm.io/installation) updated to the latest version.
 
 Fork this repository by clicking the "Fork" button in the upper right. This will create a copy of the repository in your GitHub account.
 
@@ -89,4 +89,4 @@ If your review passes, you'll be asked to generate a Changeset to automate the p
 pnpm run changeset
 ```
 
-Following semantic versioning conventions, choose between `patch`, `minor`, or `major`. Then, please summarize the changes made and how they impact library consumers. If it's a change that introduces breaking changes, try to provide helpful advice on how to migrate effectively.
+Following [semantic versioning](https://semver.org/) conventions, choose between `patch`, `minor`, or `major`. Then, please summarize the changes made and how they impact library consumers. If it's a change that introduces breaking changes, try to provide helpful advice on how to migrate effectively.
