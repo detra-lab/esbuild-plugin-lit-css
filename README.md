@@ -4,13 +4,14 @@
 [![NPM Downloads][npm_downloads_badge]][npm_badge_url]
 [![CI Status][ci_badge]][ci_badge_url]
 
-An [esbuild](https://esbuild.github.io/) plugin created to handle a Lit component's CSS using [Lightning CSS](https://lightningcss.dev/), an extremely fast CSS parser, bundler, transformer, and minifier.
+An [esbuild](https://esbuild.github.io/) plugin to transform a Lit component styles via [Lightning CSS](https://lightningcss.dev/): an extremely fast CSS parser, bundler, transformer, and minifier.
 
 - [esbuild-plugin-lit-css](#esbuild-plugin-lit-css)
   - [About Lightning CSS and the Plugin](#about-lightning-css-and-the-plugin)
   - [Installation and Usage](#installation-and-usage)
   - [Plugin Options](#plugin-options)
-  - [TypeScript](#typescript)
+  - [TypeScript Support](#typescript-support)
+  - [Contributing](#contributing)
   - [License](#license)
 
 ## About Lightning CSS and the Plugin 
@@ -60,7 +61,7 @@ The plugin processes styles and returns them as a JavaScript or TypeScript strin
    // import litCssPlugin from '@detra-lab/esbuild-plugin-lit-css'
 
    await esbuild.build({
-     // ...
+     // Other esbuild options...
      plugins: [litCssPlugin()]
    })
    ```
@@ -98,15 +99,15 @@ The plugin processes styles and returns them as a JavaScript or TypeScript strin
 
 You can pass several options to the plugin, which by default reference those passed to esbuild.
 
-| Option            | Type    | Default                                                    |
-| ----------------- | ------- | ---------------------------------------------------------- |
-| browserlistQuery  | string  | `> 0.5%, last 2 versions, Firefox ESR, not dead`.          |
-| debug             | boolean | The esbuild `logLevel` property set to `debug`.            |
-| disableDraftSpecs | boolean | Lightning CSS [draft syntax](https://lightningcss.dev/transpilation.html#draft-syntax) functionality is activated. |
-| minify            | boolean | The esbuild `minify` property or `false` if not specified. |
-| sourceMap         | boolean | A specified value for the `sourceMap` property of esbuild. |
+| Option            | Type    | Default                                                                        |
+| ----------------- | ------- | ------------------------------------------------------------------------------ |
+| browserlistQuery  | string  | `> 0.5%, last 2 versions, Firefox ESR, not dead`.                              |
+| debug             | boolean | The esbuild `logLevel` property is set to `debug` or `false` if not specified. |
+| disableDraftSpecs | boolean | Lightning CSS [draft syntax](https://lightningcss.dev/transpilation.html#draft-syntax) is active by default. |
+| minify            | boolean | The esbuild `minify` property or `false` if not specified.                     |
+| sourceMap         | boolean | The esbuild `sourceMap` property or `false` if not specified.                  |
 
-## TypeScript
+## TypeScript Support
 
 If you encounter type issues when importing a CSS file within TypeScript code, you can add this line to your `tsconfig.json` file:
 
@@ -125,9 +126,15 @@ Alternatively, you can use a `*.d.ts` file (e.g. `esbuild-env.d.ts`), in the roo
 /// <reference types="@detra-lab/esbuild-plugin-lit-css/declarations" />
 ```
 
+## Contributing
+
+Read our [contributing guide](./CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
+
 ## License
 
 [Apache License 2.0](./LICENSE)
+
+<div align="center"><img src="https://raw.github.com/detra-lab/.github/stable/profile/logo.svg" width="80" height="80" alt="Detra" /><p><small>© 2023 Detra</small></p></div>
 
 <!-- Badges -->
 

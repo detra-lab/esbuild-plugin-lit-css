@@ -6,7 +6,7 @@ pre-commit:
       run: pnpm run check
 
     test:
-      run: pnpm run test
+      run: pnpm run test:ci
 
     prettier:
       glob: '*'

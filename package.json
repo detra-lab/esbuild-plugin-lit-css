@@ -1,7 +1,7 @@
 {
   "name": "@detra-lab/esbuild-plugin-lit-css",
   "version": "0.1.0",
-  "description": "An esbuild plugin for handling a Lit component's styles via PostCSS.",
+  "description": "An esbuild plugin to transform Lit component styles via Lightining CSS.",
   "type": "module",
   "exports": {
     ".": {
@@ -26,8 +26,9 @@
     "build:plugin": "node ./config/esbuild.js",
     "build:types": "tsc --project ./tsconfig.build.json",
     "build": "pnpm run build:plugin && pnpm run build:types",
-    "test": "vitest --silent --run",
-    "test:cov": "pnpm run test --coverage",
+    "test": "vitest --silent",
+    "test:ci": "pnpm run test --run",
+    "test:cov": "pnpm run test:ci --coverage",
     "release": "pnpm run build && changeset publish"
   },
   "dependencies": {
