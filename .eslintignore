@@ -1,6 +1,6 @@
 out
-/config/
-/demo/
-/lib/
+/config
+/demo
+/lib
 
 node_modules

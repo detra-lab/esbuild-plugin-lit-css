@@ -137,12 +137,10 @@ Read our [contributing guide](./CONTRIBUTING.md) to learn about our developmen
 <div align="center"><img src="https://raw.github.com/detra-lab/.github/stable/profile/logo.svg" width="100" height="100" alt="Detra" /><p><small>© 2023 Detra</small></p></div>
 
 <!-- Badges -->
-
 [ci_badge]: https://img.shields.io/github/actions/workflow/status/detra-lab/esbuild-plugin-lit-css/test.yaml?style=flat-square&colorA=424394&colorB=80ffdb
 [npm_version_badge]: https://img.shields.io/npm/v/@detra-lab/esbuild-plugin-lit-css?style=flat-square&colorA=424394&colorB=80ffdb
 [npm_downloads_badge]: https://img.shields.io/npm/dm/@detra-lab/esbuild-plugin-lit-css?style=flat-square&colorA=424394&colorB=80ffdb
 
 <!-- Links -->
-
 [ci_badge_url]: https://github.com/detra-lab/esbuild-plugin-lit-css/actions/workflows/test.yaml
 [npm_badge_url]: https://www.npmjs.com/package/@detra-lab/esbuild-plugin-lit-css
