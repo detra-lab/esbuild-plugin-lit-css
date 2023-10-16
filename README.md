@@ -11,6 +11,7 @@ An [esbuild](https://esbuild.github.io/) plugin to transform a Lit component sty
   - [Installation and Usage](#installation-and-usage)
   - [Plugin Options](#plugin-options)
   - [TypeScript Support](#typescript-support)
+  - [Code of Conduct](#code-of-conduct)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -126,13 +127,17 @@ Alternatively, you can use a `*.d.ts` file (e.g. `esbuild-env.d.ts`), in the roo
 /// <reference types="@detra-lab/esbuild-plugin-lit-css/declarations" />
 ```
 
+## Code of Conduct
+
+Help us keep the project open and inclusive. Please read and follow our [Code of Conduct](https://github.com/detra-lab/esbuild-plugin-lit-css/blob/stable/CODE_OF_CONDUCT.md).
+
 ## Contributing
 
-Read our [contributing guide](./CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
+Read our [contributing guide](https://github.com/detra-lab/esbuild-plugin-lit-css/blob/stable/CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
 
 ## License
 
-[Apache License 2.0](./LICENSE)
+[Apache License 2.0](https://github.com/detra-lab/esbuild-plugin-lit-css/blob/stable/LICENSE)
 
 <div align="center"><img src="https://raw.github.com/detra-lab/.github/stable/profile/logo.svg" width="100" height="100" alt="Detra" /><p><small>© 2023 Detra</small></p></div>
 
