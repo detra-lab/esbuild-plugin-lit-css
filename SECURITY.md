@@ -1,6 +1,11 @@
-# Security Reporting and Disclosure Policy
+# Security reporting and disclosure policy
 
-## Reporting a Security Issue
+- [Security reporting and disclosure policy](#security-reporting-and-disclosure-policy)
+  - [Reporting a security issue](#reporting-a-security-issue)
+  - [Security policies](#security-policies)
+  - [Security updates](#security-updates)
+
+## Reporting a security issue
 
 If you uncover a security concern within this project, please adhere to the following steps to promptly and responsibly report it to us:
 
@@ -10,17 +15,15 @@ If you uncover a security concern within this project, please adhere to the foll
 
 3. **Responsible disclosure**: We value responsible disclosure and commit to acknowledging your email within 48 hours. We will prioritize resolving the issue as swiftly as possible, informing you of our progress.
 
-## Security Policies
+## Security policies
 
 - **Public disclosure guidelines**: We request that you only publicly disclose security issues after coordinating with us.
 - **Responsible disclosure encouraged**: We appreciate and encourage responsible disclosure efforts, recognizing the importance of reporting security issues privately.
 - **Progress updates**: We commit to informing you about the steps we take to address any reported security concerns.
 - **Recognition for researchers and developers**: We extend our appreciation and credit to security researchers and developers who responsibly report and assist in resolving security issues.
 
-## Security Updates
+## Security updates
 
 We are deeply committed to the security of this project and consistently work to maintain its safety. Our approach involves actively monitoring and updating dependencies, code, and configurations to mitigate potential vulnerabilities. We recommend that you regularly check for and apply updates to ensure the ongoing security of your installation.
 
 Thank you for your valuable contribution to the security of this project.
-
-<div align="right"><p>The Detra Core Team</p></div>

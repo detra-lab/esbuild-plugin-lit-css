@@ -1,5 +1,14 @@
 # Code of Conduct
 
+- [Code of Conduct](#code-of-conduct)
+  - [Introduction](#introduction)
+  - [Our pledge](#our-pledge)
+  - [Expected behavior](#expected-behavior)
+  - [Unacceptable behavior](#unacceptable-behavior)
+  - [Reporting and enforcement](#reporting-and-enforcement)
+  - [Attribution](#attribution)
+  - [Conclusion](#conclusion)
+
 ## Introduction
 
 Welcome to the Detra community!
@@ -8,11 +17,11 @@ We’ve established this Code of Conduct to ensure a positive and inclusive envi
 
 This Code of Conduct outlines our expectations for all members of our community and the consequences of unacceptable behavior.
 
-## Our Pledge
+## Our pledge
 
 In the interest of fostering an open and welcoming environment, we pledge to make participation in our project and community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## Expected Behavior
+## Expected behavior
 
 We expect all community members to:
 
@@ -23,7 +32,7 @@ We expect all community members to:
   - Focus on the project's goals and maintain a positive attitude.
   - Be mindful of your words and actions, understanding their impact on others.
 
-## Unacceptable Behavior
+## Unacceptable behavior
 
 Unacceptable behaviors include, but are not limited to:
 
@@ -34,7 +43,7 @@ Unacceptable behaviors include, but are not limited to:
   - Posting inappropriate or explicit material.
   - Any other behavior that violates the project's goals or the principles of this Code of Conduct.
 
-## Reporting and Enforcement
+## Reporting and enforcement
 
 If you witness or experience unacceptable behavior, please report it to us. You can contact the project maintainers by emailing `detra.lab@pm.me` or through the reporting mechanisms provided in the project's platform.
 

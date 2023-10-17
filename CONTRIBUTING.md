@@ -1,18 +1,18 @@
 # Contributing
 
-- [Contributing](#contributing)
-  - [Initial Requirements](#initial-requirements)
-  - [Environment Setup](#environment-setup)
-  - [Commit Your Changes](#commit-your-changes)
-  - [Creating a Changeset](#creating-a-changeset)
-
 This brief guide will provide essential instructions to help you take your first steps in this project.
 
 We appreciate any contribution you wish to make, from reporting a bug to proposing a new feature or simply spreading the word about this project.
 
 If it's your first time contributing to an open-source project and you want to explore this topic in detail, refer to this free resource: [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github).
 
-## Initial Requirements
+- [Contributing](#contributing)
+  - [Initial requirements](#initial-requirements)
+  - [Environment setup](#environment-setup)
+  - [Commit your changes](#commit-your-changes)
+  - [Creating a Changeset](#creating-a-changeset)
+
+## Initial requirements
 
 Before contributing to the project, make sure you have the following initial requirements:
   - An updated version of [Git](https://git-scm.com/);
@@ -27,7 +27,7 @@ Clone your fork locally using Git:
 git clone https://github.com/your-username/esbuild-plugin-lit-css.git
 ```
 
-## Environment Setup
+## Environment setup
 
 Install project dependencies using the command:
 ```sh
@@ -59,7 +59,7 @@ pnpm run build
 
 If there are no errors, you have the green light to proceed! 🚀
 
-## Commit Your Changes
+## Commit your changes
 
 At the end of your work, commit your changes and push them to your fork. An automation hook at pre-commit performs TypeScript type-checking, ESLint linting, runs unit tests and formats the code with Prettier.
 

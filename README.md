@@ -7,44 +7,44 @@
 An [esbuild](https://esbuild.github.io/) plugin to transform a Lit component styles via [Lightning CSS](https://lightningcss.dev/): an extremely fast CSS parser, bundler, transformer, and minifier.
 
 - [esbuild-plugin-lit-css](#esbuild-plugin-lit-css)
-  - [About Lightning CSS and the Plugin](#about-lightning-css-and-the-plugin)
-  - [Installation and Usage](#installation-and-usage)
-  - [Plugin Options](#plugin-options)
-  - [TypeScript Support](#typescript-support)
+  - [About Lightning CSS and the plugin](#about-lightning-css-and-the-plugin)
+  - [Installation and usage](#installation-and-usage)
+  - [Plugin options](#plugin-options)
+  - [TypeScript support](#typescript-support)
   - [Code of Conduct](#code-of-conduct)
   - [Contributing](#contributing)
   - [License](#license)
 
-## About Lightning CSS and the Plugin 
+## About Lightning CSS and the plugin 
 
 Lightning CSS is a tool written in Rust that empowers developers to use modern CSS features and future syntax today. It offers the following syntax transformations:
 
 - [:dir() Selector](https://cssdb.org/#dir-pseudo-class)
 - [:is() Selector](https://cssdb.org/#is-pseudo-class)
 - [:not() Selector](https://cssdb.org/#not-pseudo-class)
-- [Color Function](https://cssdb.org/#color-function)
-- [Color Mix](https://cssdb.org/#color-mix)
-- [Custom Media Queries](https://cssdb.org/#custom-media-queries)
-- [Double Position Gradients](https://cssdb.org/#double-position-gradients)
-- [Hex Colors with Alpha](https://cssdb.org/#hexadecimal-alpha-notation)
-- [HWB Colors](https://cssdb.org/#hwb-function)
-- [Lab Colors](https://cssdb.org/#lab-function)
-- [Logical Properties](https://cssdb.org/#logical-properties-and-values)
-- [Math Functions](https://drafts.csswg.org/css-values/#math)
-- [Media Query Ranges](https://cssdb.org/#media-query-ranges)
+- [Color function](https://cssdb.org/#color-function)
+- [Color mix](https://cssdb.org/#color-mix)
+- [Custom media queries](https://cssdb.org/#custom-media-queries)
+- [Double position gradients](https://cssdb.org/#double-position-gradients)
+- [Hex colors with alpha](https://cssdb.org/#hexadecimal-alpha-notation)
+- [HWB colors](https://cssdb.org/#hwb-function)
+- [Lab colors](https://cssdb.org/#lab-function)
+- [Logical properties](https://cssdb.org/#logical-properties-and-values)
+- [Math functions](https://drafts.csswg.org/css-values/#math)
+- [Media query ranges](https://cssdb.org/#media-query-ranges)
 - [Nesting](https://cssdb.org/#nesting-rules)
-- [Relative Colors](https://cssdb.org/#lch-function)
+- [Relative colors](https://cssdb.org/#lch-function)
 - [system-ui font](https://cssdb.org/#system-ui-font-family)
 
 Furthermore, Lightning CSS offers a range of built-in features, including:
-- [Conditional Imports](https://lightningcss.dev/bundling.html#conditional-imports)
-- [Vendor Prefixing](https://lightningcss.dev/transpilation.html#vendor-prefixing) (an Autoprefixer alternative)
-- [Optimizazions and Minification](https://lightningcss.dev/minification.html) (a CSSNano alternative)
+- [Conditional imports](https://lightningcss.dev/bundling.html#conditional-imports)
+- [Vendor prefixing](https://lightningcss.dev/transpilation.html#vendor-prefixing) (an Autoprefixer alternative)
+- [Optimizazions and minification](https://lightningcss.dev/minification.html) (a CSSNano alternative)
 - [Shorthands](https://lightningcss.dev/transpilation.html#shorthands)
 
-The plugin processes styles and returns them as a JavaScript or TypeScript string, offering a powerful and versatile tool for modern web development.
+The plugin will process the styles and return them as a JavaScript/TypeScript string, giving you a versatile way to deal with them.
 
-## Installation and Usage
+## Installation and usage
 
 1. Install the NPM package of the plugin, along with esbuild itself:
 
@@ -96,7 +96,7 @@ The plugin processes styles and returns them as a JavaScript or TypeScript strin
    node ./esbuild.js
    ```
 
-## Plugin Options
+## Plugin options
 
 You can pass several options to the plugin, which by default reference those passed to esbuild.
 
@@ -108,7 +108,7 @@ You can pass several options to the plugin, which by default reference those pas
 | minify            | boolean | The esbuild `minify` property or `false` if not specified.                     |
 | sourceMap         | boolean | The esbuild `sourceMap` property or `false` if not specified.                  |
 
-## TypeScript Support
+## TypeScript support
 
 If you encounter type issues when importing a CSS file within TypeScript code, you can add this line to your `tsconfig.json` file:
 
