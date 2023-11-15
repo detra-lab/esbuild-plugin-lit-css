@@ -9,7 +9,7 @@ import {
   STYLES_SOURCE,
   CSS_MINIFIED,
   CSS_NOT_MINIFIED,
-  CSS_WITHOUT_DRAFT_SPECS
+  CSS_WITH_DRAFT_SPECS
 } from './constants.js'
 import { esbuildRun, getSourceMap, getSourcePaths } from './utils.js'
 
@@ -71,7 +71,7 @@ describe(PLUGIN_NAME, () => {
     expect(out.rawCss).toBe(CSS_NOT_MINIFIED)
   })
 
-  test('should provide a compiled CSS without compiling the draft CSS specs', async () => {
+  test('should provide a compiled CSS with draft CSS specs not transpiled', async () => {
     outfileName = generateRandomUUID()
 
     await esbuildRun(outfileName, {
@@ -80,7 +80,7 @@ describe(PLUGIN_NAME, () => {
 
     const out = await import(`./fixture/${outfileName}`)
 
-    expect(out.rawCss).toBe(CSS_WITHOUT_DRAFT_SPECS)
+    expect(out.rawCss).toBe(CSS_WITH_DRAFT_SPECS)
   })
 
   test('should provide a compiled CSS with the inline source map inside a JavaScript file', async () => {
