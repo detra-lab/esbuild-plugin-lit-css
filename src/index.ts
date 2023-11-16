@@ -16,7 +16,7 @@ export interface LitCssPluginOptions {
    * You may disable them to speed up the process.
    * Default: `false`.
    */
-  disableDraftSpecs?: boolean
+  includeDraftSpecs?: boolean
   /**
    * Enable minification of generated CSS to reduce the bundle size.
    * Default: esbuild options or otherwise `false`.
