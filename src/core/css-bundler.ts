@@ -28,7 +28,7 @@ export const cssBundler = ({
   sourceFile,
   browserlistQuery,
   debug: isDebugActive,
-  includeDraftSpecs: isDraftSyntaxIncluded,
+  includeDraftSpecs: isDraftSpecsIncluded,
   minify: isMinificationRequired,
   sourceMap: isSourceMapRequired
 }: CssBundlerOptions): Effect.Effect<
@@ -39,7 +39,7 @@ export const cssBundler = ({
   lightningCss({
     sourceFile,
     browserlistQuery,
-    isDraftSyntaxIncluded,
+    isDraftSpecsIncluded,
     isMinificationRequired,
     isSourceMapRequired
   }).pipe(
@@ -65,7 +65,7 @@ export const cssBundler = ({
 interface LightningCssOptions {
   sourceFile: string
   browserlistQuery: string
-  isDraftSyntaxIncluded: boolean
+  isDraftSpecsIncluded: boolean
   isMinificationRequired: boolean
   isSourceMapRequired: boolean
 }
@@ -73,7 +73,7 @@ interface LightningCssOptions {
 const lightningCss = ({
   sourceFile,
   browserlistQuery,
-  isDraftSyntaxIncluded,
+  isDraftSpecsIncluded,
   isMinificationRequired,
   isSourceMapRequired
 }: LightningCssOptions): Effect.Effect<
@@ -92,7 +92,7 @@ const lightningCss = ({
             filename: sourceFile,
             minify: isMinificationRequired,
             sourceMap: isSourceMapRequired,
-            drafts: getDraftSpecs(isDraftSyntaxIncluded)
+            drafts: getDraftSpecs(isDraftSpecsIncluded)
           }),
         catch: error => new CSSCompilationError(error)
       })
@@ -111,8 +111,8 @@ const browserlist = (
     )
   )
 
-const getDraftSpecs = (isDraftSyntaxIncluded: boolean): Drafts =>
-  isDraftSyntaxIncluded
+const getDraftSpecs = (isDraftSpecsIncluded: boolean): Drafts =>
+  isDraftSpecsIncluded
     ? {}
     : {
         customMedia: true
