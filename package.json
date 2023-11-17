@@ -29,6 +29,7 @@
     "build:plugin": "node ./config/esbuild.js",
     "build:types": "tsc --project ./tsconfig.build.json",
     "build": "pnpm run build:plugin && pnpm run build:types",
+    "changeset": "changeset",
     "release": "pnpm run build && changeset publish"
   },
   "dependencies": {

@@ -12,11 +12,11 @@ export interface LitCssPluginOptions {
    */
   debug?: boolean
   /**
-   * Lightning CSS compiles [specifications](https://lightningcss.dev/transpilation.html#draft-syntax) not yet available in browsers.
-   * You may disable them to speed up the process.
+   * Lightning CSS compiles [specifications](https://lightningcss.dev/transpilation.html#draft-syntax) not yet
+   * available in browsers. You can include them and avoid transpilation to speed up the process.
    * Default: `false`.
    */
-  disableDraftSpecs?: boolean
+  includeDraftSpecs?: boolean
   /**
    * Enable minification of generated CSS to reduce the bundle size.
    * Default: esbuild options or otherwise `false`.

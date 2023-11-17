@@ -75,7 +75,7 @@ describe(PLUGIN_NAME, () => {
     outfileName = generateRandomUUID()
 
     await esbuildRun(outfileName, {
-      plugins: [litCssPlugin({ disableDraftSpecs: true })]
+      plugins: [litCssPlugin({ includeDraftSpecs: true })]
     })
 
     const out = await import(`./fixture/${outfileName}`)
