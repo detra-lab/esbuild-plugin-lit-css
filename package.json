@@ -44,13 +44,13 @@
     "@detra-lab/tsc": "^0.2.5",
     "@evilmartians/lefthook": "^1.5.2",
     "@types/node": "^18.18.5",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@vitest/coverage-v8": "^1.0.0",
     "esbuild": "^0.19.4",
     "eslint": "^8.51.0",
     "lit": "^3.0.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
+    "vitest": "^1.0.0"
   },
   "peerDependencies": {
     "esbuild": "^0.19.0"
