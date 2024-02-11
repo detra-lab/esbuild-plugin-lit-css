@@ -104,7 +104,7 @@ You can pass several options to the plugin, which by default reference those pas
 | ----------------- | ------- | ------------------------------------------------------------------------------ |
 | browserlistQuery  | string  | `> 0.5%, last 2 versions, Firefox ESR, not dead`.                              |
 | debug             | boolean | The esbuild `logLevel` property is set to `debug` or `false` if not specified. |
-| includeDraftSpecs | boolean | Lightning CSS [draft syntax](https://lightningcss.dev/transpilation.html#draft-syntax) transpilation is enabled by default. Set this property to `true` to change the default behaviour. |
+| includeDraftSpecs | boolean | Lightning CSS [draft syntax](https://lightningcss.dev/transpilation.html#draft-syntax) transpilation is enabled by default. Set this property to `true` to include the draft specifications in the generated code. |
 | minify            | boolean | The esbuild `minify` property or `false` if not specified.                     |
 | sourceMap         | boolean | The esbuild `sourceMap` property or `false` if not specified.                  |
 
