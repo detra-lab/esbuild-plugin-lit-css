@@ -1,6 +1,6 @@
 {
   "name": "@detra-lab/esbuild-plugin-lit-css",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An esbuild plugin to transform Lit component styles via Lightining CSS.",
   "type": "module",
   "exports": {

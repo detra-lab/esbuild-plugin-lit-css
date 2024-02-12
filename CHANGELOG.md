@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- 1135fbe: Fix the `includeDraftSpecs` API description.
+
 ## 1.0.1
 
 ### Patch Changes
