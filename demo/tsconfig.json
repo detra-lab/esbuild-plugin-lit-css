@@ -1,4 +1,4 @@
 {
-  "extends": "@detra-lab/tsc/lit/tsconfig.json",
+  "extends": "@detra-lab/tsc/lit",
   "include": ["./src", "./esbuild-env.d.ts"]
 }

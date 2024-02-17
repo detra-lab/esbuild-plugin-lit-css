@@ -4,6 +4,7 @@ coverage
 .cache
 .DS_Store
 .env*
+.node-version
 *log
 node_modules
 Thumbs.db
