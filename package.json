@@ -33,7 +33,7 @@
     "release": "pnpm run build && changeset publish"
   },
   "dependencies": {
-    "browserslist": "4.22.3",
+    "browserslist": "4.23.0",
     "effect": "2.2.3",
     "lightningcss": "1.23.0"
   },
