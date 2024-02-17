@@ -3,5 +3,5 @@
 ---
 
 Updated the following dependencies:
-`browserslist` to `v4.23.0`
-`effect` to `v2.3.6`
+- `browserslist` to `v4.23.0`
+- `effect` to `v2.3.6`
