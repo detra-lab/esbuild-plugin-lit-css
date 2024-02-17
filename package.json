@@ -45,7 +45,7 @@
     "@evilmartians/lefthook": "^1.5.2",
     "@types/node": "^18.18.5",
     "@vitest/coverage-v8": "^1.0.0",
-    "esbuild": "^0.19.4",
+    "esbuild": "^0.20.0",
     "eslint": "^8.51.0",
     "lit": "^3.0.0",
     "prettier": "^3.0.3",
@@ -53,7 +53,7 @@
     "vitest": "^1.0.0"
   },
   "peerDependencies": {
-    "esbuild": "^0.19.0"
+    "esbuild": "^0.19.0 || ^0.20.0"
   },
   "peerDependenciesMeta": {
     "esbuild": {
