@@ -6,6 +6,8 @@
 
 An [esbuild](https://esbuild.github.io/) plugin to transform a Lit component styles via [Lightning CSS](https://lightningcss.dev/): an extremely fast CSS parser, bundler, transformer, and minifier.
 
+> Tested using esbuild v0.19 and v0.20.
+
 - [esbuild-plugin-lit-css](#esbuild-plugin-lit-css)
   - [About Lightning CSS and the plugin](#about-lightning-css-and-the-plugin)
   - [Installation and usage](#installation-and-usage)
