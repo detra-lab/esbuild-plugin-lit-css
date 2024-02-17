@@ -31,5 +31,4 @@ export interface LitCssPluginOptions {
 
 export { litCssPlugin }
 
-// eslint-disable-next-line no-restricted-exports
-export default litCssPlugin
+export { litCssPlugin as default }
