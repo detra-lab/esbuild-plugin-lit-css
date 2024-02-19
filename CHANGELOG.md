@@ -6,7 +6,7 @@
 
 - 8afab53: Updated the following dependencies:
   - `browserslist` to `v4.23.0`
-  - `effect` to `v2.3.6`
+  - `effect` to `v2.3.7`
 
 ## 1.0.2
 
