@@ -17,7 +17,7 @@ export const esbuildRun = async (
   })
 }
 
-export const getSourcePaths = (): Effect.Effect<never, never, string[]> => {
+export const getSourcePaths = (): Effect.Effect<string[]> => {
   const basePath = path.resolve(__dirname, 'fixture')
 
   const removeCapitalSlash = (s: string): string => s.substring(1)
@@ -31,7 +31,7 @@ export const getSourcePaths = (): Effect.Effect<never, never, string[]> => {
 export const getSourceMap = (
   sources: string[],
   sourcesContent: string[]
-): Effect.Effect<never, unknown, string> =>
+): Effect.Effect<string, unknown> =>
   Effect.try(() =>
     JSON.stringify({
       version: 3,

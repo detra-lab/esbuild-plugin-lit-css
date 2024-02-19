@@ -8,6 +8,7 @@ import {
 } from 'esbuild'
 import { type LitCssPluginOptions as PluginOptions } from '../index.js'
 import { cssBundler } from './css-bundler.js'
+import { stringifyUint8 } from './utils.js'
 
 interface OnResolveResolver extends OnResolveArgs {
   namespace: string
@@ -47,4 +48,6 @@ const composeContents = (
   css: Uint8Array,
   map: Uint8Array | null
 ): string | Uint8Array =>
-  map === null ? css : `${css.toString()}//# sourceMappingURL=${map.toString()}`
+  map === null
+    ? css
+    : `${stringifyUint8(css)}//# sourceMappingURL=${stringifyUint8(map)}`

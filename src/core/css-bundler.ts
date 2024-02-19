@@ -31,11 +31,7 @@ export const cssBundler = ({
   includeDraftSpecs: isDraftSpecsIncluded,
   minify: isMinificationRequired,
   sourceMap: isSourceMapRequired
-}: CssBundlerOptions): Effect.Effect<
-  never,
-  CSSCompilationError,
-  CSSBundlerResult
-> =>
+}: CssBundlerOptions): Effect.Effect<CSSBundlerResult, CSSCompilationError> =>
   lightningCss({
     sourceFile,
     browserlistQuery,
@@ -77,9 +73,8 @@ const lightningCss = ({
   isMinificationRequired,
   isSourceMapRequired
 }: LightningCssOptions): Effect.Effect<
-  never,
-  BrowserlistError | CSSCompilationError,
-  TransformResult
+  TransformResult,
+  BrowserlistError | CSSCompilationError
 > =>
   browserlist(browserlistQuery).pipe(
     Effect.flatMap(targets =>
@@ -99,9 +94,7 @@ const lightningCss = ({
     )
   )
 
-const browserlist = (
-  query: string
-): Effect.Effect<never, BrowserlistError, Targets> =>
+const browserlist = (query: string): Effect.Effect<Targets, BrowserlistError> =>
   Effect.sync(() => browserslist(query)).pipe(
     Effect.flatMap(targets =>
       Effect.try({

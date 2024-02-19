@@ -1,5 +1,5 @@
 {
-  "extends": "@detra-lab/tsc/node/tsconfig.esm.json",
+  "extends": "@detra-lab/tsc/node/esm",
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
