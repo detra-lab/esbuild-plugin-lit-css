@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@detra-lab/eslint-config": "^2.2.0",
+    "@detra-lab/eslint-config": "^3.0.0",
     "@detra-lab/prettier-config": "^0.3.0",
     "@detra-lab/tsc": "^0.3.0",
     "@evilmartians/lefthook": "^1.6.1",
