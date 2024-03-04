@@ -30,7 +30,7 @@ devDependencies:
     version: 0.3.0(@types/node@20.11.19)(typescript@5.3.3)
   '@evilmartians/lefthook':
     specifier: ^1.6.1
-    version: 1.6.1
+    version: 1.6.4
   '@types/node':
     specifier: ^20.11.19
     version: 20.11.19
@@ -986,8 +986,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@evilmartians/lefthook@1.6.1:
-    resolution: {integrity: sha512-4E35gOuECaf/+DaA0m1Q1U3BnaQclAUgK2UOYPyQOU0mCnvbMIqNJFiq2ArYuECEUIkTtAjoIzs1xkNFqUaOLQ==}
+  /@evilmartians/lefthook@1.6.4:
+    resolution: {integrity: sha512-TCLkRr4p91qSuMJ9D728/Yx3ZSTiZaPiPTUHMKcD5iRb/zdfWc/HSlujG6bvkXNaCvznO4W68qYSmdSwaEewkQ==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
