@@ -21,7 +21,7 @@ jobs:
 
       - name: 🗄️ Load Secrets
         id: secrets
-        uses: 1password/load-secrets-action@v1
+        uses: 1password/load-secrets-action@v2
         with:
           export-env: false
         env:
